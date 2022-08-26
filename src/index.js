@@ -7,10 +7,8 @@ const client = new PhotonClient({
   domain: "auth.neutron.health",
   clientId: "********************************",
   redirectURI: "http://localhost:3000",
-  organization: "Capable",
-});
-
-client.setDevelopment();
+  organization: "org_cOC5eDUznHNkGkB3",
+}).setDevelopment();
 
 window.client = client
 

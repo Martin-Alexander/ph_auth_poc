@@ -1,19 +1,20 @@
 import { usePhoton } from "@photonhealth/react";
 
 const Patients = () => {
-  const { getPatients } = usePhoton();
+  const { getPatients, logout } = usePhoton();
   const { patients, loading } = getPatients({});
 
   return <div>
+    <button onClick={() => logout({})}>Logout</button>
     {
       loading ? (
         <p>Loading</p>
       ) : (
         <ul>
           {patients.map((patient) => {
-            <li>
-              {patient.name}
-            </li>
+            return (<li>
+              {patient.name.full}
+            </li>)
           })}
         </ul>
       )
