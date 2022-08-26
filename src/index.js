@@ -1,17 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { PhotonClient, PhotonProvider } from "@photonhealth/react";
+
+const client = new PhotonClient({
+  domain: "auth.neutron.health",
+  clientId: "********************************",
+  redirectURI: "http://localhost:3000",
+  organization: "Capable",
+});
+
+client.setDevelopment();
+
+window.client = client
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <PhotonProvider client={client}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </PhotonProvider>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
