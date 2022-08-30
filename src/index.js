@@ -6,7 +6,7 @@ import { PhotonClient, PhotonProvider } from "@photonhealth/react";
 const client = new PhotonClient({
   domain: "auth.neutron.health",
   clientId: "********************************",
-  redirectURI: "http://localhost:3000",
+  redirectURI: window.location.origin,
   organization: "org_cOC5eDUznHNkGkB3",
 }).setDevelopment();
 

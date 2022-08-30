@@ -12,7 +12,7 @@ const Patients = () => {
       ) : (
         <ul>
           {patients.map((patient) => {
-            return (<li>
+            return (<li key={patient.id}>
               {patient.name.full}
             </li>)
           })}
